@@ -3,7 +3,7 @@ import ErrorHandler from './error.js'
 import jwt from 'jsonwebtoken'
 import {User} from '../models/userSchema.js'
 export const isAuthorized = CatchAsyncError(async (req,res,next)=>{
-    const {token} = req.cookies;
+    const {token} = req.cookies.token;
     if(!token){
         return next(new ErrorHandler("User is not authorized",401))
     }
